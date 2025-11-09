@@ -1,8 +1,8 @@
 #include<bits/stdc++.h>
 using namespace std;
-string zigzagCovnversion(string s , int n){
+void zigzagCovnversion(string s , int n){
     if(n <= 1){
-     return s ;
+     cout << s ;
     }
  int len = s.length();
  bool down;
@@ -21,9 +21,9 @@ row++;
 row--;
 }
 }
-string result ;
-for(string x : arr)result += x;
-return result;
+for(int i = 0 ; i < n ; i++){
+ cout << arr[i];
+}
 }
 
 int main(){
