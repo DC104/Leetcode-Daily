@@ -1,34 +1,28 @@
-#include<bits/stdc++.h>
-using namespace std;
-void zigzagCovnversion(string s , int n){
-    if(n <= 1){
-     cout << s ;
+class Solution {
+public:
+    string convert(string s, int numRows) {
+        if(numRows == 1){
+            return s;
+        }
+        int len = s.length();
+        vector<string>arr(numRows);
+        bool down;
+        int row = 0;
+        for(int i = 0 ; i < len ; i++){
+            arr[row].push_back(s[i]);
+            if(row == numRows - 1){
+                down = false ;
+            }else if(row == 0){
+                down = true;
+            }
+            if(down){
+                row++;
+            }else{
+                row--;
+            }
+        }
+       string result ;
+       for(string x : arr)result = result + x;
+       return result;
     }
- int len = s.length();
- bool down;
- int row = 0;
- vector<string>arr(n);
-for(int i = 0 ; i < len ; i++){
-arr[n].push_back(s[i]);
-if(row == n - 1){
- down = false;
-}else if(row == 0){
-down = true;
-}
-if(down){
-row++;
-}else{
-row--;
-}
-}
-for(int i = 0 ; i < n ; i++){
- cout << arr[i];
-}
-}
-
-int main(){
-string s = "GOOGLE";
-int n = 2 ;
-cout <<  zigzagCovnversion(s,n);
-return 0;
-}
+};
